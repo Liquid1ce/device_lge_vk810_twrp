@@ -116,31 +116,7 @@ TARGET_RECOVERY_FSTAB = device/lge/vk810/fstab.twrp
 
 BOARD_HAS_NO_SELECT_BUTTON := true
 
-# SELinux policies
-# qcom sepolicy
-include device/qcom/sepolicy/sepolicy.mk
 
-BOARD_SEPOLICY_DIRS += \
-        device/lge/vk810/sepolicy
-
-BOARD_SEPOLICY_UNION += \
-        bluetooth_loader.te \
-        kernel.te
-
-BOARD_USES_QC_TIME_SERVICES := true
-
-COMMON_GLOBAL_CFLAGS += -DBOARD_CHARGING_CMDLINE_NAME='"androidboot.mode"' -DBOARD_CHARGING_CMDLINE_VALUE='"chargerlogo"'
-
-BOARD_USES_CYANOGEN_HARDWARE := true
-BOARD_HARDWARE_CLASS += \
-    device/lge/vk810/cmhw \
-    hardware/cyanogen/cmhw
-
-BOARD_USES_LEGACY_MMAP := true
-
-# Radio
-TARGET_RELEASE_CPPFLAGS += -DNEEDS_LGE_RIL_SYMBOLS
-BOARD_RIL_CLASS := ../../../device/lge/vk810/ril/
 
 # TWRP
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
