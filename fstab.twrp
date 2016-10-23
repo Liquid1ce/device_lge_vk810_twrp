@@ -4,5 +4,6 @@
 /boot              emmc       /dev/block/platform/msm_sdcc.1/by-name/boot
 /recovery          emmc       /dev/block/platform/msm_sdcc.1/by-name/recovery
 
-/external_sd       vfat       /dev/block/mmcblk1p1 /dev/block/mmcblk1              flags=display="External SD";storage;wipeingui;removable
-/usb_storage vfat /dev/block/sda1 /dev/block/sda flags=display="USB Storage";storage;wipeingui;removable
+
+/devices/platform/msm_sdcc.3/mmc_host*              auto           auto   defaults                                                        voldmanaged=sdcard1:auto,encryptable=userdata twrp=display="Micro SDcard";storage;wipeingui;removable
+/devices/platform/msm_hsusb_host* auto auto defaults voldmanaged=usb:auto twrp=removable;storage;display=USB-OTG
