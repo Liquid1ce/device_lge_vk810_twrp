@@ -4,7 +4,16 @@ TARGET_BOOTLOADER_NAME := altev
 TARGET_NO_BOOTLOADER := true
 
 # Platform
+BOARD_USES_QCOM_HARDWARE := true
+TARGET_ARCH := arm
+TARGET_ARCH_VARIANT := armv7-a-neon
+TARGET_CPU_ABI := armeabi-v7a
+TARGET_CPU_ABI2 := armeabi
+TARGET_CPU_VARIANT := krait
 TARGET_BOARD_PLATFORM := msm8960
+TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
+TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
+TARGET_NO_BOOTLOADER := true
 
 # Architecture
 TARGET_CPU_ABI := armeabi-v7a
@@ -27,7 +36,7 @@ BOARD_CUSTOM_BOOTIMG_MK := device/lge/vk810/mkbootimg.mk
 BOARD_CUSTOM_BOOTIMG := true
 
 # USB Mounting
-TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun0/file
+#TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun0/file
 
 
 # Recovery
@@ -40,7 +49,7 @@ TARGET_RECOVERY_FSTAB = device/lge/vk810/fstab.twrp
 TARGET_RECOVERY_LCD_BACKLIGHT_PATH := \"/sys/class/leds/lcd-backlight/brightness\"
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 
-
+s
 # TWRP
 TW_THEME := portrait_hdpi
 TW_NO_REBOOT_BOOTLOADER := true
