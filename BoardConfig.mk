@@ -27,12 +27,18 @@ BOARD_CUSTOM_BOOTIMG_MK := device/lge/vk810/mkbootimg.mk
 BOARD_CUSTOM_BOOTIMG := true
 
 # USB Mounting
-TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun0/file
+# TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun0/file
+
 
 # Recovery
-TARGET_USERIMAGES_USE_EXT4 := true
-BOARD_HAS_LARGE_FILESYSTEM := true
+BOARD_HAS_NO_SELECT_BUTTON := true
+BOARD_RECOVERY_SWIPE := true
 BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
+COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
+RECOVERY_FSTAB_VERSION = 2
+TARGET_RECOVERY_FSTAB = device/lge/vk810/rootdir/etc/fstab.altev
+TARGET_RECOVERY_LCD_BACKLIGHT_PATH := \"/sys/class/leds/lcd-backlight/brightness\"
+TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 TARGET_RECOVERY_FSTAB = device/lge/vk810/fstab.twrp
 
 # TWRP
